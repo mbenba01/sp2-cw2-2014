@@ -76,12 +76,10 @@ public class Fraction {
 	public Fraction add(Fraction f) throws IOException {
 		
 		int n1 = this.numerator * f.getDenominator();
-		int d1 = this.denominator * f.getDenominator();
 		int n2 = this.denominator * f.getNumerator();
-		int d2 = d1;
+		int d = this.denominator * f.getDenominator();
 		
-		
-		return new Fraction(n1 + n2, d2);
+		return new Fraction(n1 + n2, d);
 		
 	}
 	
