@@ -1,7 +1,9 @@
 package fractions;
+
 /**
  * @author Musatpha Benbaziz
  * @version 1.0.2
+ * 
  */
 import static org.junit.Assert.*;
 
@@ -13,25 +15,24 @@ public class FractionTest {
 
 	@Test
 	public void testMultiply() throws IOException {
-		
-		//Fraction f1 = new Fraction(1, 2);
+
 		//f will be used as the argument for the multiply method 
-		Fraction f = new Fraction(3, 6);
-		
-		/*int n1 = f1.getNumerator() * f2.getNumerator();
-		int d1 = f1.getDenominator() * f2.getDenominator();*/
+		Fraction f = new Fraction(3, 2);
 		
 		//expected is a random fraction used to compare with the actual result of the multiply method
-		Fraction expected = new Fraction(3, 10);
+		Fraction expected = new Fraction(1, 4);
 		
 		//actual, with arguments 1 and 2, is the actual fraction resulting from the multiply method computation of actual and f fractions
 		Fraction actual = new Fraction(1, 2);
 		actual = actual.multiply(f);
 		
-		assertEquals("Oooops!", expected, actual);
+		//actual = actual.negate(actual);
+		
+		assertEquals("Wrong answer!", expected, actual);
 		
 	}
 	
+
 	@Test
 	/**
 	 * 
@@ -43,21 +44,18 @@ public class FractionTest {
 	 */
 	public void testAdd() throws IOException {
 		
-		//Fraction f1 = new Fraction(1, 2);
-		
 		//f will be used as the argument for the add method 
 		Fraction f = new Fraction(3, 6);
-		
-		/*int n1 = f1.getNumerator() * f2.getDenominator();
-		int n2 = f2.getNumerator() * f1.getDenominator();
-		int d =  f1.getDenominator() * f2.getDenominator();*/
-		
+			
 		//expected is a random fraction used to compare with the actual result of the add method
-		Fraction expected = new Fraction(1, 10);
+		Fraction expected = new Fraction(3, 10);
 		
 		//actual, with arguments 1 and 2, is the actual fraction resulting from the add method computation of actual and f fractions
 		Fraction actual = new Fraction(1,2);
 		actual = actual.add(f);
+		
+		//actual = actual.negate(actual);
+		//actual = actual.absValue(actual);
 		
 		//Check if values of expected and actual are the same
 		assertEquals("Wrong answer!", expected, actual);
@@ -65,5 +63,40 @@ public class FractionTest {
 		
 	}
 	
+	@Test
+	public void testSubtract() throws IOException {
+		
+		//f will be used as the argument for the sub method 
+		Fraction f = new Fraction(4, 2);
+		
+		//Random fraction used to compare with the actual result of the sub method
+		Fraction expected = new Fraction(1, 14);
+		
+		//with arguments 3 and 5, the actual fraction stores the result of the sub method computation of actual and f fractions
+		Fraction actual = new Fraction(3, 4);
+		actual = actual.subtract(f);
+		
+		//actual = actual.negate(actual);
+		//actual = actual.absValue(actual);
+		
+		assertEquals("Wrong answer!", expected, actual);
+		
+	}
+	
+	@Test 
+	public void testDivide() throws IOException {
+		
+		Fraction f = new Fraction(3, 5);
+		
+		Fraction expected = new Fraction(2, 4);
+		
+		Fraction actual = new Fraction(3, 2);
+		actual = actual.divide(f);
+		
+		//actual = actual.negate(actual);
+		
+		assertEquals("Wrong answer!", expected, actual);
+		
+	}
 
 }

@@ -18,6 +18,7 @@ public class Fraction {
 			System.exit(1);
 			//return;
 		}
+		
 		//Reduce the numerator and denominator when appropriate by dividing them by their great common denominator (gcd)
 		int gcd = findGCD(n, d);
 		numerator = n / gcd;
@@ -91,6 +92,44 @@ public class Fraction {
 		
 	}
 	
+	public Fraction subtract(Fraction f) {
+		
+		if(this.denominator == f.getDenominator()) {
+			return new Fraction(this.numerator - f.getNumerator(), f.getDenominator());
+		}
+		
+		int n1 = this.numerator * f.getDenominator();
+		int n2 = this.denominator * f.getNumerator();
+		int d = this.denominator * f.getDenominator();
+		
+		return new Fraction(n1 - n2, d);
+		
+	}
+	
+	public Fraction divide(Fraction f) {
+		
+		int n1 = this.numerator * f.getDenominator();
+		int n2 = this.denominator * f.getNumerator();
+		
+		return new Fraction(n1, n2);
+		
+	}
+	
+	public Fraction absValue(Fraction f) {
+		
+		int n = Math.abs(f.getNumerator());
+		int d = Math.abs(f.getDenominator());
+		
+		return new Fraction(n, d);
+		
+	}
+	
+	public Fraction negate(Fraction f) {
+		
+		 return new Fraction(this.numerator *= -1, this.getDenominator());
+		 
+	}
+	
 	private int findGCD(int n, int d) {
 		
 		while(d != 0) {
@@ -101,8 +140,6 @@ public class Fraction {
 		return n;
 		
 	}
-	
-	
 	
 	
 	
