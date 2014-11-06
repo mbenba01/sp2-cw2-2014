@@ -10,13 +10,18 @@ public class Fraction {
 	private int numerator;
 	private int denominator;
 	
-	public Fraction(int n, int d) throws IOException {
+	public Fraction(int n, int d) {
+		
+		//Throws an error message if the denominator is zero and exits the java virtual machine 
 		if(d == 0) {
-			System.out.println("Invalid fraction with denominator 0");
-			return;
+			System.err.println("Invalid fraction with denominator 0, please use another digit!");
+			System.exit(1);
+			//return;
 		}
-		numerator = n;
-		denominator = d;
+		//Reduce the numerator and denominator when appropriate by dividing them by their great common denominator (gcd)
+		int gcd = findGCD(n, d);
+		numerator = n / gcd;
+		denominator = d /gcd;
 	}
 	
 	public int getNumerator() {
@@ -78,8 +83,22 @@ public class Fraction {
 		int n1 = this.numerator * f.getDenominator();
 		int n2 = this.denominator * f.getNumerator();
 		int d = this.denominator * f.getDenominator();
+		int gcd = findGCD(n1, n2);
 		
-		return new Fraction(n1 + n2, d);
+		//returns a new, and reduced fraction using the gcd from findGCD method
+		return new Fraction((n1 + n2) / gcd, (d / gcd));
+		//return new Fraction(n1 + n2,d);
+		
+	}
+	
+	private int findGCD(int n, int d) {
+		
+		while(d != 0) {
+			int t = d;
+			d = n % d;
+			n = t;
+		}
+		return n;
 		
 	}
 	
