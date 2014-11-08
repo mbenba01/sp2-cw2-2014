@@ -2,6 +2,7 @@ package fractions;
 /**
  * @author Mustapha Benbaziz
  * @version 1.0
+ * 
  */
 import java.io.IOException;
 
@@ -16,7 +17,7 @@ public class Fraction {
 		if(d == 0) {
 			System.err.println("Invalid fraction with denominator 0, please use another digit!");
 			System.exit(1);
-			//return;
+			return;
 		}
 		
 		//Reduce the numerator and denominator when appropriate by dividing them by their great common denominator (gcd)
@@ -88,7 +89,6 @@ public class Fraction {
 		
 		//returns a new, and reduced fraction using the gcd from findGCD method
 		return new Fraction((n1 + n2) / gcd, (d / gcd));
-		//return new Fraction(n1 + n2,d);
 		
 	}
 	
