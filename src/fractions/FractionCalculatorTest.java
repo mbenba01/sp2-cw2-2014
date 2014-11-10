@@ -13,7 +13,7 @@ public class FractionCalculatorTest {
 		String input = "3/2 + 3/3 / 5/4";
 		String[] expecteds = {"3/2", "3/3", "/", "5/4"};
 		
-		FractionCalculator fc = new FractionCalculator();
+		FractionCalculatorOld fc = new FractionCalculatorOld();
 		String[] actual = fc.splitString(input);
 		
 		assertArrayEquals("Wrong answer!", expecteds, actual);
@@ -26,7 +26,7 @@ public class FractionCalculatorTest {
 		String[] input = {"3/2", "3/3", "/", "5/4"};
 		String[] expecteds =  {"5/4", "9/7"};
 		String[] actual = null;
-		FractionCalculator item = new FractionCalculator();
+		FractionCalculatorOld item = new FractionCalculatorOld();
 		
 		for(int i = 0; i < input.length; i++) {
 			
@@ -42,7 +42,7 @@ public class FractionCalculatorTest {
 		String[] input = {"3/4"};
 		String[] expected = {"+"};
 		String[] actual = null;
-		FractionCalculator item = new FractionCalculator();
+		FractionCalculatorOld item = new FractionCalculatorOld();
 		
 		for(int i = 0; i < input.length; i++) {
 			

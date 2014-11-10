@@ -8,7 +8,7 @@ public class FractionTest extends Fraction {
 		super(n, d);
 	}
 	
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws IOException {
 		
 		//Test divide by zero - prints an error and exits if denominator is changed to 0
 		Fraction f = new FractionTest(1, 6);
