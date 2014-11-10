@@ -104,19 +104,26 @@ public class FractionCalculator extends Fraction {
 
 	}
 	
+	public Fraction evaluate(Fraction frac, String inputString) throws IOException {
 	
+		// Line of input from the user pulled apart
+		String[] input = splitString(inputString);
+		
+		frac = new Fraction(getNumerator(), getDenominator());
+		stValue = setInValue(input);
+		
+		Fraction result = frac.add(stValue);
+		return result;
+	}
 	
 	public static void main(String[] args) throws Exception {	
 		
-		String input = in.nextLine();
+		System.out.println("Welcome!");
+		System.out.print("---------------------------");
+		Fraction f = new FractionCalculator(3, 4);
+		String s = in.nextLine();
+		Fraction currentValue = ((FractionCalculator) f).evaluate(f, s);
 		
-		// Line of input from the user pulled apart
-		String[] f = splitString(input);
-		
-		stValue = setInValue(f);
-		//System.out.print(stValue);
-		String operation = setOperation(f);
-		//System.out.print(operation);
 		
 		
 	}
